@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-watchgps" version="0.9.9">
+  <name>WatchGPS</name>
+  <author>Jerome Velociter</author>
+  <description>Watch for GPS being enabled / disabled</description>
+  <license>MIT</license>
+  <keywords>gps, watch, enabled </keywords>
+  <repo>https://github.com/jvelo/cordova-plugin-watch-gps.git</repo>
+  <issue>https://github.com/jvelo/cordova-plugin-watch-gps/issues</issue>
+  <dependency id="cordova-plugin-geolocation" version="1.0.1" />
+  <js-module src="www/watch-gps.js" name="WatchGPS">
+    <clobbers target="WatchGPS" />
+  </js-module>
+  <platform name="android">
+    <source-file src="src/android/WatchGPS.java" target-dir="src/fr/velociter/cordova/watchgps/" />
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="WatchGPS">
+        <param name="android-package" value="fr.velociter.cordova.watchgps.WatchGPS"/>
+        <param name="onload" value="true" />
+      </feature>
+    </config-file>
+  </platform>
+</plugin>
